@@ -6,6 +6,7 @@ import api from "../../services/invoiceapi";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import moment from "moment";
 
 
 const Invoice = () => {
@@ -33,7 +34,9 @@ const Invoice = () => {
     }
   }, [param.id]);
 
-  
+
+  // const date = product.createdDate.moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
+   const date = moment(product.createdDate).format("dddd, MMMM Do YYYY, h:mm:ss a");
 
   return (
     <>
@@ -88,7 +91,7 @@ const Invoice = () => {
                     {" "}
                     <span className="text-gray">Date #</span>{" "}
                     <span className="text-black text-lg font-bold">
-                    {product.createdDate}
+                    {date}
                     </span>{" "}
                   </div>
                 </div>

@@ -24,7 +24,7 @@ function BankVA() {
   
     if(result.valid === "Check Success"){
       // localStorage.setItem('checkk', JSON.stringify(result))
-      localStorage.setItem('payid', result.virtualAcc)
+      localStorage.setItem('payid', result.vaccount)
       // localStorage.setItem('nopel', virtualAcc)
       
       

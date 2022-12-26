@@ -11,6 +11,7 @@ import Footer from "../../components/footer/Footer";
 import api from "../../services/api";
 import api2 from "../../services/invoiceapi";
 import CardHistory from "../../components/card-history";
+import moment from "moment";
 
 const contentStyle = {
   height: "300px",
@@ -208,7 +209,7 @@ const Home = () => {
                           <CardHistory
                               firstName={item.orderType} 
                               bills={item.totalPrice} 
-                              merch={item.createdDate} 
+                              merch={moment(item.createdDate).format("ddd, hA")} 
                               onClick={item.invoiceId}/>
                           )
                         )}

@@ -6,13 +6,13 @@ import { useState } from "react";
 
 function Bill() {
 
-  const [merchantId, setNopel] = useState("");
+  const [paymentId, setNopel] = useState("");
 
   const handlePay = async () =>{
 
     let result = await fetch(`http://localhost:8080/api/merchant/find`,{
       method: 'post',
-      body: JSON.stringify({merchantId}),
+      body: JSON.stringify({paymentId}),
       
       headers: {
         'Content-Type': 'application/json'
@@ -26,8 +26,8 @@ function Bill() {
       console.log(JSON.stringify(result));
       // localStorage.setItem('user', JSON.stringify(result))
       localStorage.setItem('payid', result.merchantId)
-      localStorage.setItem('merchName', result.data)
-      localStorage.setItem('nopel', merchantId)
+      // localStorage.setItem('merchName', result.data)
+      // localStorage.setItem('nopel', paymentId)
       swal("Merch Found!")
       window.location.href = "/pay";
       // navigate("/home");
@@ -66,7 +66,7 @@ function Bill() {
                     name="number"
                     class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  block w-full rounded-md sm:text-sm focus:border-utama focus:ring-utama"
                     placeholder="Tolong Masukkan ID PELANGGAN"
-                    value={merchantId}
+                    value={paymentId}
                     onChange={(e) => setNopel(e.target.value)}
                   />
                 </label>

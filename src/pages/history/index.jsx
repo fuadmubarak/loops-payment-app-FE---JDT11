@@ -1,3 +1,4 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import CardHistory from "../../components/card-history";
 import Navigation from "../../components/header/Navigation";
@@ -40,7 +41,7 @@ const History = () => {
           <CardHistory 
             firstName={item.orderType} 
             bills={item.totalPrice} 
-            merch={item.createdDate} 
+            merch= {moment(item.createdDate).format("dddd, MMMM Do YYYY, h:mm:ss a")}
             onClick={item.invoiceId}/>
           )
         )}

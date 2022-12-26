@@ -26,13 +26,13 @@ function MerchantPayment() {
   var discount, bayar;
   if(baseprice > 200000){
     discount = baseprice*50/100;
-    bayar = baseprice + discount;
+    bayar = JSON.parse(baseprice) + JSON.parse(discount);
   }else if (baseprice > 99000) {
     discount = baseprice*25/100;
      bayar = JSON.parse(baseprice) + JSON.parse(discount);
   }else if (baseprice > 50000) {
     discount = baseprice*10/100;
-    bayar = baseprice + discount;
+    bayar = JSON.parse(baseprice) + JSON.parse(discount);
   }else{
     discount = 0;
     bayar = baseprice - discount;
